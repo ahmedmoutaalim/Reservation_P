@@ -8847,11 +8847,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\Reservation_Std\\Reservation_Std\\Reservation_Std.csproj",
+      "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\Reservation_P\\Reservation_Std\\Reservation_Std\\Reservation_Std.csproj",
       "projectName": "Reservation_Std",
-      "projectPath": "C:\\Users\\Youcode\\Desktop\\Reservation_Std\\Reservation_Std\\Reservation_Std.csproj",
+      "projectPath": "C:\\Users\\Youcode\\Desktop\\Reservation_P\\Reservation_Std\\Reservation_Std\\Reservation_Std.csproj",
       "packagesPath": "C:\\Users\\Youcode\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Youcode\\Desktop\\Reservation_Std\\Reservation_Std\\obj\\",
+      "outputPath": "C:\\Users\\Youcode\\Desktop\\Reservation_P\\Reservation_Std\\Reservation_Std\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Youcode\\AppData\\Roaming\\NuGet\\NuGet.Config",
