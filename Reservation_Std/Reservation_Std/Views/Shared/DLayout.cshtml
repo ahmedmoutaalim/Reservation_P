@@ -1,45 +1,79 @@
 ﻿
+
 <!DOCTYPE html>
 <html>
 <head>
-
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width-device-width" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <title>Dashboard</title>
+    <style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+  .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            border: 1px solid gray;
+            background: #2b5876;
+            background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+            background: linear-gradient(to Bottom, #4e4376, #2b5876);
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f1f1f1;
+            display: block;
+        }
+        .sidenav img {
+            width: 80px;
+            margin-left: 18px;
+            margin-Bottom: 20px;
+        }
+
+            .sidenav a:hover {
+                color: #818181;
+            }
+
+     
+          
+.main {
+  margin-left: 200px;
+  font-size: 15px;
+  padding: 0px 10px;
+}
+
+@*  @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}*@
+    </style>
 </head>
 <body>
 
-
-    <div class="row">
-
-        <div class="col-lg-2-md-2 col-sm-2 col-xs-2" style="height:900px ; border:1px solid gray ; background-color:#35539B">
-            <div class="list-group">
-
-                <div class="list-group-item">
-                    @Html.ActionLink("Add_category", "Add_category", new { @class = "list-group-item" })
-                </div>
-              
-                <div class="list-group-item">
-                    @Html.ActionLink("Reports", "Dashboard", new { @class = "list-group-item" })
-                </div>
-                <div class="list-group-item">
-                    @Html.ActionLink("Logout", "Index", new { @class = "list-group-item" })
-                </div>
-            </div>
-
-
-
-        </div>
-        <div class="col-lg-10-md-10 col-sm-10 col-xs-10" style="height:900px ; border:1px solid gray">  @RenderBody()</div>
-
+    <div class="sidenav">
+        <img src="~/img/LogoR.png"  />
+      
+        <a href="Index"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a href="ListR"><i class="fa fa-fw fa-list"></i> requests List</a>
 
     </div>
 
+    <div class="main">
+        @RenderBody()
+    </div>
+
 </body>
-</html>
+</html> 

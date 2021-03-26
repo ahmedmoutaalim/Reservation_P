@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Reservation_Std.Data;
+using Reservation_Std.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +31,15 @@ namespace Reservation_Std
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(
                      Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddIdentity<Utilisateur, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                  .AddDefaultUI()
                  .AddEntityFrameworkStores<ApplicationDbContext>()
                  .AddDefaultTokenProviders();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddAuthorization(options => {
+      /*      services.AddAuthorization(options => {
                 options.AddPolicy("Adminpolicy",
                     builder => builder.RequireRole("Admin"));
              
@@ -47,7 +49,7 @@ namespace Reservation_Std
                 options.AddPolicy("Userspolicy",
                     builder => builder.RequireRole("Admin" , "User" ));
 
-            });
+            });*/
 
         }
 

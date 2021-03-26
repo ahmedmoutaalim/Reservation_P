@@ -7,7 +7,7 @@
 
 }
 
-<h1>Admin Dashboard</h1>
+<h1>Reservation List</h1>
 
 
 
@@ -55,14 +55,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => Item.Date)
                 </td>
-
-                <td>
-
-                    <a asp-action="Details" asp-route-id="@Item.Id">Show details</a>
-
-                </td>
             </tr>
         }
     </tbody>
 </table>
-

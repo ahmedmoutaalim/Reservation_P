@@ -14,13 +14,13 @@ namespace TestAppAuthAndAuthorize.Controllers
         {
             this.roleManager = roleManager;
         }
-        [Authorize(Policy = "Adminpolicy")]
+
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();
             return View(roles);
         }
-        [Authorize(Policy = "Adminpolicy")]
+
         public IActionResult Create()
         {
             return View(new IdentityRole());

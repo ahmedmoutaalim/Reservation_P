@@ -9,10 +9,14 @@ namespace Reservation_Std.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext()
         {
         }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
 
         public DbSet<Utilisateur> Utilisateurs { get; set; }
 

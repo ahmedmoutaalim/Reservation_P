@@ -1,0 +1,56 @@
+﻿@model Reservation_Std.Models.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/DLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Utilisateur.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Utilisateur.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Utilisateur.Nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Utilisateur.Nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Utilisateur.Email_Utilisateur)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Utilisateur.Email_Utilisateur)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReservationType.Nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReservationType.Nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a class="btn btn-success" name="button" asp-action="check" value="Approuve" asp-route-id="@Model.Id"><i class="fa fa-check"></i>Edit</a>
+    <a class="btn btn-danger" name="button" asp-action="check" value="Reject" asp-route-id="@Model.Id"><i class="fa fa-remove"></i>Delete</a>
+
+
+    <a class="btn btn-outline-dark" asp-action="Index">
+        <i class="fa fa-arrow-left"></i> Back to List
+    </a>
+</div>

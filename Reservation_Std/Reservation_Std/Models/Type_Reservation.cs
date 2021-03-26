@@ -14,6 +14,7 @@ namespace Reservation_Std.Models
     {
         [Key]
         public int IdType_reservation { get; set; }
+        [Display(Name = " Reservation type")]
         public string Nom { get; set; }
         public int Number { get; set; }
 
