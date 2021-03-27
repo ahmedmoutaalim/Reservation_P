@@ -382,3 +382,10 @@ C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug
 C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\CreateRole.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\EditRole.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\EditUser.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\LIstRoles.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\ListUsers.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\EditUsersInRole.cshtml.g.cs
+C:\Users\Youcode\Desktop\Reservation_P\Reservation_Std\Reservation_Std\obj\Debug\netcoreapp3.1\Razor\Views\Adminstration\ManageUserRoles.cshtml.g.cs
