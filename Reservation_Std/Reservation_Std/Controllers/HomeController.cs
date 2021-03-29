@@ -11,14 +11,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using Reservation_Std.Contract;
 
 namespace Reservation_Std.Controllers
 {
     public class HomeController : Controller
     {
-    
 
        
+
         private ApplicationDbContext Context { get; }
         private UserManager<Utilisateur> _userManager;
 
@@ -32,11 +33,13 @@ namespace Reservation_Std.Controllers
 
         }
 
-         
 
 
+        [Authorize]
         public IActionResult Index()
         {
+            
+
 
             return View();
         }
@@ -46,7 +49,7 @@ namespace Reservation_Std.Controllers
             return View();
         }
 
-   
+        [Authorize(Policy = "Adminpolicy")]
         public async Task<IActionResult> AdminDashboard()
         {
             var Reservation = await this.Context.Reservations.Include(r=>r.ReservationType).Include(r=>r.Utilisateur).ToListAsync();
@@ -54,7 +57,7 @@ namespace Reservation_Std.Controllers
             return View(Reservation);
          
         }
-
+        [Authorize(Policy = "Adminpolicy")]
         public async Task<IActionResult> Details(int id)
         {
             Reservation R = await this.Context.Reservations.Include(r => r.ReservationType).Include(r => r.Utilisateur).Where(x => x.Id == id).SingleOrDefaultAsync();
@@ -63,6 +66,47 @@ namespace Reservation_Std.Controllers
 
 
 
+        [Authorize(Policy = "Adminpolicy")]
+        public ActionResult RejectRequest(int id)
+        {
+
+            Reservation res = this.Context.Reservations.Include(r => r.ReservationType).Include(r => r.Utilisateur).Where(r => r.Id == id).Single<Reservation>();
+            this.Context.Reservations.Remove(res);
+            this.Context.SaveChanges();
+
+            if (ModelState.IsValid)
+            {
+                TempData["m"] = "Sorry you cant reserve now repeat another time";
+            }
+
+          
+
+            return RedirectToAction("AdminDashboard");
+
+
+        }
+
+        [Authorize(Policy = "Adminpolicy")]
+        public ActionResult ApprouveRequest()
+        {
+
+
+
+            if (ModelState.IsValid)
+            {
+
+                TempData["msg"] = "Your reservation is accepted";
+
+            }
+
+
+            return RedirectToAction("AdminDashboard");
+
+
+        }
+
+
+        [Authorize(Policy = "Userpolicy")]
         public async Task<IActionResult> ListR()
         {
             var Reservation = await this.Context.Reservations.Include(r => r.ReservationType).Include(r => r.Utilisateur).ToListAsync();
@@ -71,13 +115,14 @@ namespace Reservation_Std.Controllers
 
         }
 
-
+        [Authorize(Policy = "Userpolicy")]
         [HttpGet]
         public IActionResult UserDashboard()
         {
 
             return View();
         }
+        [Authorize(Policy = "Userpolicy")]
         [HttpPost]
         public IActionResult UserDashboard(Reservation Rsv)
         {
@@ -100,7 +145,10 @@ namespace Reservation_Std.Controllers
 
             if (ModelState.IsValid)
             {
+
                 TempData["msg"] = " your request is added ";
+
+               
             }
            
             return View(Rsv);

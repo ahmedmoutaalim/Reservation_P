@@ -39,17 +39,17 @@ namespace Reservation_Std
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-      /*      services.AddAuthorization(options => {
+           services.AddAuthorization(options => {
                 options.AddPolicy("Adminpolicy",
                     builder => builder.RequireRole("Admin"));
              
             });
 
             services.AddAuthorization(options => {
-                options.AddPolicy("Userspolicy",
+                options.AddPolicy("Userpolicy",
                     builder => builder.RequireRole("Admin" , "User" ));
 
-            });*/
+            });
 
         }
 

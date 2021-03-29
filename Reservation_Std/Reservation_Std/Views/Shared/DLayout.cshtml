@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Utilisateur> SignInManager
+@inject UserManager<Utilisateur> UserManager
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +12,14 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <title>Dashboard</title>
+
+    @*  @RenderSection("Scripts", required: false)*@
     <style>
-body {
-  font-family: "Lato", sans-serif;
-}
+        body {
+            font-family: "Lato", sans-serif;
+
+        }
+
 
   .sidenav {
             height: 100%;
@@ -47,8 +53,8 @@ body {
                 color: #818181;
             }
 
-     
-          
+
+
 .main {
   margin-left: 200px;
   font-size: 15px;
@@ -64,16 +70,29 @@ body {
 <body>
 
     <div class="sidenav">
-        <img src="~/img/LogoR.png"  />
-      
-        <a href="Index"><i class="fa fa-fw fa-home"></i>Home</a>
-        <a href="ListR"><i class="fa fa-fw fa-list"></i> requests List</a>
+        <img src="~/img/LogoR.png" />
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+        {
 
+            <a asp-controller="Home" asp-action="Index"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a asp-controller="Home" asp-action="ListR"><i class="fa fa-fw fa-list"></i> requests List</a>
+        }
+
+
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+        {
+
+            <a asp-controller="Home" asp-action="Index"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a asp-controller="Home" asp-action="ListR"><i class="fa fa-fw fa-list"></i> requests List</a>
+
+            <a asp-controller="Adminstration" asp-action="LIstRoles"><i class="fa fa-fw fa-id-card"></i>List Roles</a>
+            <a asp-controller="Adminstration" asp-action="ListUsers"><i class="fa fa-fw fa-user"></i>List Users</a>
+        }
     </div>
 
     <div class="main">
         @RenderBody()
     </div>
-
+    =
 </body>
 </html> 

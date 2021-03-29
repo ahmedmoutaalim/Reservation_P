@@ -59,9 +59,17 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: #2851A6 url("../img/gif.gif") left repeat-x;
+    background-size: auto;
+    background-position: bottom;
+    background-size: cover;
+} 
+
 .footer {
   position: absolute;
   bottom: 0;

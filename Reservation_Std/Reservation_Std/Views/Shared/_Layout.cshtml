@@ -11,23 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Reservation_Std</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link href="~/css/site.css" rel="stylesheet" />
 
     <style>
 
-        body {
-            background-image: url("../../wwwroot/img/back.jpg");
-            background-size: cover;
+
+
+        .mnv {
+            color: #ffffff;
         }
 
-     
+            .mnv:hover {
+                color: black;
+                font-size: 15px;
+            }
     </style>
-
 
 </head>
 <body >
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style=" color:#ffffff;  background: -webkit-linear-gradient(to right, #4e4376, #2b5876); background: linear-gradient(to Bottom, #4e4376, #2b5876);">
 
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/LogoR.png" style="width:50px;" /></a>
@@ -37,33 +41,51 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <ul class="navbar-nav flex-grow-1">
+                 
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+                        {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Adminstration" asp-action="ListRoles">Role</a>
+                                <a style="color:#ffffff;" class="nav-link mnv" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminDashboard">Admin dashboard</a>
+                                <a style="color:#ffffff;" class="nav-link  mnv" asp-area="" asp-controller="Home" asp-action="AdminDashboard">Admin dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UserDashboard">Add reservation</a>
+                                <a style="color:#ffffff;" class="nav-link  mnv" asp-area="" asp-controller="Home" asp-action="UserDashboard">Add reservation</a>
                             </li>
-                        </ul>
-                    }
+                        }
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a style="color:#ffffff;" class="nav-link mnv" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a style="color:#ffffff;" class="nav-link mnv" asp-area="" asp-controller="Adminstration" asp-action="ListRoles">Roles</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a style="color:#ffffff;" class="nav-link  mnv" asp-area="" asp-controller="Adminstration" asp-action="ListUsers">Users</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a style="color:#ffffff;" class="nav-link  mnv" asp-area="" asp-controller="Home" asp-action="AdminDashboard">Admin dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color:#ffffff;" class="nav-link  mnv" asp-area="" asp-controller="Home" asp-action="UserDashboard">Add reservation</a>
+                            </li>
+                        }
+                    </ul>
+                  
                 </div>
             </div>
 
         </nav>
     </header>
-    <div class="container" style="background-image: url('../../wwwroot/img/back.jpg')">
+    <div class="container" >
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -71,7 +93,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Reservation_Std - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Reservation Std - <a asp-area="" asp-controller="Home" asp-action="index">Home</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
